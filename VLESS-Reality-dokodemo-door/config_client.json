@@ -1,0 +1,48 @@
+{
+    "log": {
+        "loglevel": "debug"
+    },
+    "inbounds": [
+        {
+            "tag": "wireguard",
+            "port": 51820,
+            "protocol": "dokodemo-door",
+            "settings": {
+                "address": "127.0.0.1",
+                "port": 51820,
+                "network": "udp"
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "vless",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "", 
+                        "port": 443, 
+                        "users": [
+                            {
+                                "id": "", 
+                                "encryption": "none",
+                                "flow": "xtls-rprx-vision"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "tcp",
+                "security": "reality",
+                "realitySettings": {
+                    "fingerprint": "chrome", 
+                    "serverName": "", 
+                    "publicKey": "",
+                    "shortId": "" 
+                }
+            },
+            "tag": "proxy"
+        }
+    ]
+}
