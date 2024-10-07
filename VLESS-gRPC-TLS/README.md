@@ -1,6 +1,6 @@
 # VLESS-gRPC-TLS
 
-These are expanded instructions for https://github.com/chika0801/Xray-examples/VLESS-gRPC-TLS.
+These are expanded instructions for [https://github.com/chika0801/Xray-examples/VLESS-gRPC-TLS](https://github.com/chika0801/Xray-examples/tree/main/VLESS-gRPC-TLS).
 
 They add the use of a CDN.
 
