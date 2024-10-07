@@ -20,7 +20,7 @@ Choose a subdomain and map it to your VPS IP address.
 
 Example: `grpc.shikantaza.xyz`.
 
-Set Proxy Status to DNS only (gray cloud icon).
+Set the Proxy Status for your subdomain to DNS only (gray cloud icon).
 
 SSH into your server.
 
@@ -70,11 +70,11 @@ apt install nginx -y
 nginx -v
 ```
 
-Replace entire original contents of `/etc/nginx/nginx.conf` with `VLESS-gRPC-TLS/nginx.conf`.
+Replace the entire original contents of `/etc/nginx/nginx.conf` with `VLESS-gRPC-TLS/nginx.conf`.
 
-Replace original user with `user www-data;`.
+Replace the original user with `user www-data;`.
 
-Comment out `server` block on port `80` to prevent conflicts with SSL certificate renewal.
+Comment out the `server` block on port `80` to prevent conflicts with SSL certificate renewal.
 
 Example:
 
@@ -86,7 +86,7 @@ Example:
 #    }
 ```
 
-For Nginx version below `1.25.`, replace port `443` `listen` and `http2` directives with:
+For Nginx version below `1.25.1`, replace the port `443` `listen` and `http2` directives with:
 
 ```
 #        listen                     443 ssl;
@@ -96,15 +96,15 @@ For Nginx version below `1.25.`, replace port `443` `listen` and `http2` directi
         listen [::]:443 ssl http2;
 ```
 
-Replace `server_name` example with your actual subdomain.
+Replace the `server_name` example with your actual subdomain.
 
 Example: `server_name grpc.shikantaza.xyz;`.
 
-Replace `location` (service name) example with your own value.
+Replace the `location` (service name) example with your own value.
 
 Example: `location /qwerty123`
 
-Replace `set $website` example with your own value.
+Replace the `set $website` example with your own value.
 
 Example: `set $website www.speedtest.net;`
 
@@ -122,19 +122,17 @@ systemctl status nginx
 
 ## 5. Configure Cloudflare CDN
 
-Configure your domain on Cloudflare for SSL.
-
-On the DNS page, set subdomain proxying on for your subdomain (orange cloud icon).
+On the **DNS** page, set subdomain proxying on for your subdomain (orange cloud icon).
 
 Example: `grpc.shikantaza.xyz`.
 
-Go to the Cloudflare SSL/TLS page.
+Go to the Cloudflare **SSL/TLS** page.
 
-Configure `Full (strict)` mode.
+Configure the setting to `Full (strict)` mode.
 
-Go to the Cloudflare Network page.
+Go to the Cloudflare **Network** page.
 
-Toggle switch to allow gRPC connections to your origin server.
+Toggle the switch to allow gRPC connections to your origin server.
 
 Test your set-up so far by opening a browser and visiting your server.
 
@@ -150,7 +148,7 @@ You will need to SSH into your server by IP address from now on.
 
 ## 6. Install Xray server
 
-Install Xray-core and geodata with `User=nobody`:
+Install Xray-core and the geodata files with `User=nobody`:
 
 ```
 bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install
@@ -158,9 +156,9 @@ bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release
 
 ## 7. Configure Xray server
 
-Replace the installed `/usr/local/etc/xray/config.json` with example from `VLESS-gRPC-REALITY/config_server.json`.
+Replace the installed `/usr/local/etc/xray/config.json` with the example from `VLESS-gRPC-REALITY/config_server.json`.
 
-Replace `id` example with your own UUID from https://www.uuidgenerator.net.
+Replace the `id` example with your own UUID from https://www.uuidgenerator.net.
 
 Example:
 
@@ -168,7 +166,7 @@ Example:
 "id": "f4af6131-9996-4cc0-abe9-23bfbe208e2f"
 ```
 
-Replace `serviceName` example with your own.
+Replace the `serviceName` example with your own.
 
 Example:
 
@@ -194,7 +192,7 @@ exit
 
 ## 8. Configure Xray client
 
-You can use the binary client from https://github.com/XTLS/Xray-core/releases if you prefer a command-line interface or a graphical user interface client from https://github.com/XTLS/Xray-core?tab=readme-ov-file#gui-clients.
+You can use the binary client from https://github.com/XTLS/Xray-core/releases if you prefer a command-line interface. You can use a graphical user interface client from https://github.com/XTLS/Xray-core?tab=readme-ov-file#gui-clients if you prefer a GUI.
 
 Use `VLESS-gRPC-REALITY/config_server.json` as a model for your client configuration `config.json`.
 
@@ -204,7 +202,7 @@ Fill in the VLESS server address:
 "address": "grpc.shikantaza.xyz",
 ```
 
-Replace `id` example with your own UUID.
+Replace the `id` example with your own UUID.
 
 Example:
 
@@ -235,13 +233,13 @@ Here are the suggested `grpcSettings` for use with Cloudflare CDN:
 
 Save the file.
 
-Run Xray CLI with `config.json` in the same folder as your binary:
+Run the Xray CLI with your `config.json`, which is in the same folder as your binary:
 
 ```
 ./xray -c config.json
 ```
 
-Alternatively configure and run your GUI client.
+Alternatively, configure and run your GUI client.
 
 Configure your browser to use the SOCKS proxy on port `10808`.
 
