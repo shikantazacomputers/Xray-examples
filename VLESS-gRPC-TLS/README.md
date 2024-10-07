@@ -192,7 +192,9 @@ exit
 
 ## 8. Configure Xray client
 
-You can use the binary client from https://github.com/XTLS/Xray-core/releases if you prefer a command-line interface. You can use a graphical user interface client from https://github.com/XTLS/Xray-core?tab=readme-ov-file#gui-clients if you prefer a GUI.
+### 8.1 Install, configure, and run CLI client
+
+You can use the binary client from https://github.com/XTLS/Xray-core/releases if you prefer a command-line interface. 
 
 Use `VLESS-gRPC-REALITY/config_server.json` as a model for your client configuration `config.json`.
 
@@ -239,7 +241,13 @@ Run the Xray CLI with your `config.json`, which is in the same folder as your bi
 ./xray -c config.json
 ```
 
-Alternatively, configure and run your GUI client.
+### 8.2 Install, configure, and run GUI client
+
+You can use a graphical user interface client from https://github.com/XTLS/Xray-core?tab=readme-ov-file#gui-clients if you prefer a GUI.
+
+Configure and run your GUI client.
+
+### 8.3 Configure browser
 
 Configure your browser to use the SOCKS proxy on port `10808`.
 
