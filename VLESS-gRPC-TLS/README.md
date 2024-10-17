@@ -156,7 +156,7 @@ bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release
 
 ## 7. Configure Xray server
 
-Replace the installed `/usr/local/etc/xray/config.json` with the example from `VLESS-gRPC-REALITY/config_server.json`.
+Replace the installed `/usr/local/etc/xray/config.json` with the example from `VLESS-gRPC-TLS/config_server.json`.
 
 Replace the `id` example with your own UUID from https://www.uuidgenerator.net.
 
@@ -196,7 +196,7 @@ exit
 
 You can use the binary client from https://github.com/XTLS/Xray-core/releases if you prefer a command-line interface. 
 
-Use `VLESS-gRPC-REALITY/config_server.json` as a model for your client configuration `config.json`.
+Use `VLESS-gRPC-TLS/config_client.json` as a model for your client configuration `config.json`.
 
 Fill in the VLESS server address:
 
